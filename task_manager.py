@@ -4,7 +4,7 @@ class TaskManager:
 
     def add_task(self, task):
         self.tasks.append(task)
-        print("Task added successfully.")
+        print("Task added successfully!")
 
     def show_tasks(self):
         if not self.tasks:
