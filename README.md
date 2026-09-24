@@ -409,3 +409,190 @@ git diff demonstrated	✅
 At least 5 meaningful commits	✅
 GitHub repository	✅
 Repository published	✅
+
+
+PS E:\Git Repository from Scratch> git init
+Initialized empty Git repository in E:/Git Repository from Scratch/.git/
+PS E:\Git Repository from Scratch> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        README.md
+        main.py
+        task.py
+        task_manager.py
+        utils.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\Git Repository from Scratch> git add main.py task.py README.md
+PS E:\Git Repository from Scratch> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md
+        new file:   main.py
+        new file:   task.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        task_manager.py
+        utils.py
+
+PS E:\Git Repository from Scratch> git commit -m "Initial project setup"
+[master (root-commit) 2f7babd] Initial project setup
+ 3 files changed, 465 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 main.py
+ create mode 100644 task.py
+PS E:\Git Repository from Scratch> git log --oneline
+2f7babd (HEAD -> master) Initial project setup
+PS E:\Git Repository from Scratch> git status                       
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        task_manager.py
+        utils.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\Git Repository from Scratch> git add task_manager.py
+PS E:\Git Repository from Scratch> git commit -m "Add task manager functionality"
+[master 0ead3f4] Add task manager functionality
+ 1 file changed, 23 insertions(+)
+ create mode 100644 task_manager.py
+PS E:\Git Repository from Scratch> git log --oneline
+0ead3f4 (HEAD -> master) Add task manager functionality
+2f7babd Initial project setup
+PS E:\Git Repository from Scratch> git diff
+diff --git a/task_manager.py b/task_manager.py
+index 0df6880..d479baa 100644
+--- a/task_manager.py
++++ b/task_manager.py
+@@ -4,7 +4,7 @@ class TaskManager:
+ 
+     def add_task(self, task):
+         self.tasks.append(task)
+-        print("Task added successfully.")
++        print("Task added successfully!")
+ 
+     def show_tasks(self):
+PS E:\Git Repository from Scratch> git add task_manager.py
+PS E:\Git Repository from Scratch> git commit -m "Improve task messages"
+[master 648f102] Improve task messages
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS E:\Git Repository from Scratch> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        utils.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\Git Repository from Scratch> git add utils.py
+PS E:\Git Repository from Scratch> git commit -m "Add utility functions"
+[master 92e3bbe] Add utility functions
+ 1 file changed, 12 insertions(+)
+ create mode 100644 utils.py
+PS E:\Git Repository from Scratch> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS E:\Git Repository from Scratch> git add .gitignore
+PS E:\Git Repository from Scratch> git commit -m "Add gitignore configuration"
+[master f825edc] Add gitignore configuration
+ 1 file changed, 6 insertions(+)
+ create mode 100644 .gitignore
+PS E:\Git Repository from Scratch> git log --oneline
+f825edc (HEAD -> master) Add gitignore configuration
+92e3bbe Add utility functions
+648f102 Improve task messages
+0ead3f4 Add task manager functionality
+2f7babd Initial project setup
+PS E:\Git Repository from Scratch> git log
+commit f825edc4cdd2f712b5c28110c11f8a8ec0162396 (HEAD -> master)
+Author: Urmil <urmilkashyap845@gmail.com>
+Date:   Thu Sep 24 08:08:12 2026 +0530
+
+    Add gitignore configuration
+
+commit 92e3bbe5b412bec5fac6dcc690a9eb232d4a298c
+Author: Urmil <urmilkashyap845@gmail.com>
+Date:   Thu Sep 24 08:07:48 2026 +0530
+
+    Add utility functions
+
+PS E:\Git Repository from Scratch> git status
+On branch master
+nothing to commit, working tree clean
+PS E:\Git Repository from Scratch> python main.py
+
+===== TASK MANAGER =====
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Exit
+Enter your choice: 1
+Enter task title: learn git
+Enter task description: practice git commands
+Task added successfully!
+
+===== TASK MANAGER =====
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Exit
+Enter your choice: 2
+
+Task 1
+Title: learn git
+Description: practice git commands
+Status: Pending
+
+===== TASK MANAGER =====
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Exit
+Enter your choice: 3
+
+Task 1
+Title: learn git
+Description: practice git commands
+Status: Pending
+Enter task number to complete: 1
+Task marked as completed.
+
+===== TASK MANAGER =====
+1. Add Task
+2. View Tasks
+3. Complete Task
+4. Exit
+Enter your choice: 4
+Thank you for using Task Manager.
+PS E:\Git Repository from Scratch> git remote add origin https://github.com/shanukashyap/Git-Repository-from-Scratch.git
+PS E:\Git Repository from Scratch> git remote -v
+origin  https://github.com/shanukashyap/Git-Repository-from-Scratch.git (fetch)
+origin  https://github.com/shanukashyap/Git-Repository-from-Scratch.git (push)
+PS E:\Git Repository from Scratch> git branch -M main
+PS E:\Git Repository from Scratch> git push -u origin main
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (17/17), 4.18 KiB | 534.00 KiB/s, done.
+Total 17 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/shanukashyap/Git-Repository-from-Scratch.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
